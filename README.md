@@ -1,4 +1,4 @@
-## IN PROGRESS
+## *IN PROGRESS*
 # TwitterMap
 
 ** Run NPM install, then NPM start
