@@ -4,11 +4,11 @@
   "description": "GoogleMaps/Twitter mash-up",
   "main": "index.js",
   "scripts": {
-    "start" : "node server/server.js"
+    "start": "node server/server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MikeShobe/TwitterMap.git"
+    "url": "https://github.com/MikeShobe/TwitterMap.git"
   },
   "keywords": [
     "twitter",
@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/MikeShobe/TwitterMap/issues"
   },
-  "homepage": "https://github.com/MikeShobe/TwitterMap#readme"
+  "homepage": "https://github.com/MikeShobe/TwitterMap#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
 }
