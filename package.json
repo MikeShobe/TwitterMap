@@ -1,0 +1,25 @@
+{
+  "name": "twitter-map",
+  "version": "1.0.0",
+  "description": "GoogleMaps/Twitter mash-up",
+  "main": "index.js",
+  "scripts": {
+    "start" : "node server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MikeShobe/TwitterMap.git"
+  },
+  "keywords": [
+    "twitter",
+    "map",
+    "googlemaps",
+    "api"
+  ],
+  "author": "Mike Shobe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MikeShobe/TwitterMap/issues"
+  },
+  "homepage": "https://github.com/MikeShobe/TwitterMap#readme"
+}
