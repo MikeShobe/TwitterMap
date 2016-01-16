@@ -8,7 +8,7 @@ app.use(express.static('client'));
 //   res.send(body);
 // });
 
-console.log('Server connected.');
+console.log('Server connected - localhost:3000');
 app.listen(3000);
 
 module.exports = app;

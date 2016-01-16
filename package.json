@@ -4,7 +4,7 @@
   "description": "GoogleMaps/Twitter mash-up",
   "main": "index.js",
   "scripts": {
-    "start": "node server/server.js"
+    "start": "nodemon server/server.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/MikeShobe/TwitterMap#readme",
   "dependencies": {
-    "express": "^4.13.3"
+    "express": "^4.13.3",
+    "nodemon": "^1.8.1"
   }
 }
