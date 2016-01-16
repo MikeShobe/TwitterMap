@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+//request?
 // var twitterAPI = require('twitterAPI');
 
 app.use(express.static('client'));

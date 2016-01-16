@@ -1,0 +1,13 @@
+html, body { 
+	height: 90%; 
+	margin: 20px; 
+	padding: 0; 
+}
+
+#map {
+	height: 90%;
+}
+
+h1 {
+	text-align: center;
+}
