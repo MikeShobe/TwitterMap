@@ -1,6 +1,6 @@
-## *IN PROGRESS*
+## *-IN PROGRESS-*
 # TwitterMap
 
-** Run NPM install, then NPM start
+### Run NPM install, then NPM start
 
-** Go to localhost:3000
+### Go to localhost:3000
