@@ -24,6 +24,7 @@
   "homepage": "https://github.com/MikeShobe/TwitterMap#readme",
   "dependencies": {
     "express": "^4.13.3",
-    "nodemon": "^1.8.1"
+    "nodemon": "^1.8.1",
+    "request": "^2.67.0"
   }
 }
