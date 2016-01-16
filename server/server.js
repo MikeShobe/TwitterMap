@@ -5,10 +5,11 @@ var request = require('request');
 
 app.use(express.static('client'));
 
-// app.get('/', function(req, res) {
+// app.get('/test', function(req, res) {
 //   request.get('', 
 //     function(err, response, body) {
-//       res.send(body);
+//       if (err || response.statusCode !== 200) throw err;
+//       console.log(body);
 //   });
 // });
 
