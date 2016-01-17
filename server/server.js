@@ -1,17 +1,21 @@
 var express = require('express');
 var app = express();
-var request = require('request');
+var Twit = require('twit')
+var config = require('./config/config.js');
 // var twitterAPI = require('twitterAPI');
 
 app.use(express.static('client'));
 
-// app.get('/test', function(req, res) {
-//   request.get('', 
-//     function(err, response, body) {
-//       if (err || response.statusCode !== 200) throw err;
-//       console.log(body);
-//   });
-// });
+var T = new Twit({
+  consumer_key:         config.twitterAPI.consumer_key,
+  consumer_secret:      config.twitterAPI.consumer_secret,
+  access_token:         config.twitterAPI.access_token,
+  access_token_secret:  config.twitterAPI.access_token_secret
+})
+
+T.get('search/tweets', { q: 'banana since:2011-11-11', count: 10 }, function(err, data, response) {
+  console.log(data)
+})
 
 console.log('Server connected - localhost:3000');
 app.listen(3000);
