@@ -4,10 +4,14 @@ html, body {
 	padding: 0; 
 }
 
+h1 {
+  text-align: center;
+}
+
 #map {
 	height: 90%;
 }
 
-h1 {
-	text-align: center;
+#searchbar {
+  text-align: center;
 }

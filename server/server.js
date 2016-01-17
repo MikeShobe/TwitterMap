@@ -4,6 +4,8 @@ var Twit = require('twit')
 var config = require('./config/config.js');
 // var twitterAPI = require('twitterAPI');
 
+var tweets = [];
+
 app.use(express.static('client'));
 
 var T = new Twit({
@@ -13,9 +15,13 @@ var T = new Twit({
   access_token_secret:  config.twitterAPI.access_token_secret
 })
 
-T.get('search/tweets', { q: 'banana since:2011-11-11', count: 10 }, function(err, data, response) {
-  console.log(data)
+var sanFrancisco = [ '-122.75', '36.8', '-121.75', '37.8' ];
+var stream = T.stream('statuses/filter', { locations: sanFrancisco })
+
+stream.on('tweet', function (tweet) {
+  console.log(tweet)
 })
+
 
 console.log('Server connected - localhost:3000');
 app.listen(3000);
