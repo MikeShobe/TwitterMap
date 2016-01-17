@@ -4,7 +4,7 @@ var Twit = require('twit')
 var config = require('./config/config.js');
 // var twitterAPI = require('twitterAPI');
 
-var tweets = [];
+var tweetArray = [];
 
 app.use(express.static('client'));
 
@@ -15,11 +15,21 @@ var T = new Twit({
   access_token_secret:  config.twitterAPI.access_token_secret
 })
 
-var sanFrancisco = [ '-122.75', '36.8', '-121.75', '37.8' ];
+var sanFrancisco = ['-122.75', '36.8', '-121.75', '37.8'];
 var stream = T.stream('statuses/filter', { locations: sanFrancisco })
+var count = 0;
 
 stream.on('tweet', function (tweet) {
-  console.log(tweet)
+  // console.log(tweet);
+  // console.log(Object.keys(tweet));
+  while (tweetArray.length < 10){
+    for (key in tweet){
+      var newObj = {};
+      newObj[key] = tweet[key];
+      tweetArray.push(newObj);
+    }
+  }
+  console.log(tweetArray);
 })
 
 
