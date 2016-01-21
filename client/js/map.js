@@ -8,7 +8,7 @@ function initMap() {
   var contentString = "This is a test";
   var contentLocation = {lat: 37.7835, lng: -122.4169}
 
-
+  //tweet text will be stored here and is accessed via marker
   var infowindow = new google.maps.InfoWindow({
     content: contentString
   });

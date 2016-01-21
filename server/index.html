@@ -11,10 +11,23 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
     <script>
+      var tweetArray = [];
       var socket = io.connect('http://localhost:3000');
       socket.on('stream', function(tweet){
-        console.log(tweet);
-      $('#tweetd').append(tweet+'<br>');
+        // console.log(tweet);
+      while (tweetArray.length < 10){
+        for (key in tweet){
+          console.log(tweet[key]);
+          if (tweet[key]){
+            var newObj = {};
+            newObj[key] = tweet[key];
+            tweetArray.push(newObj);
+          }
+        }
+      }
+        for (var i = 0; i < tweetArray.length; i++) {
+          $('#tweets').append(tweetArray[i].text+'<br>');
+        }
       });
     </script>
     <script async defer
@@ -22,7 +35,7 @@
     </script>
 
     <div id="map"></div>
-    <div id="tweetd"></div>
+    <div id="tweets"></div>
 
   </body>
 </html>

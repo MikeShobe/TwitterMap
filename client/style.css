@@ -12,6 +12,9 @@ h1 {
 	height: 90%;
 }
 
-#searchbar {
-  text-align: center;
+#tweets {
+  height: 100px;
+  width: 100px;
+  font-size: 14px;
+  font: red;
 }

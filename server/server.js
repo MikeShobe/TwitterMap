@@ -1,8 +1,16 @@
 var express = require('express');
 var app = express();
-// var io = require('socket.io')('app');
+var http = require('http');
+var server = http.createServer(app);
 var Twit = require('twit');
+var io = require('socket.io').listen(server);
 var config = require('./config/config.js');
+
+server.listen(3000);
+
+app.get('/', function (req, res) {
+  res.sendfile(__dirname + '/index.html');
+});
 
 //Since using streaming API needed reliable storage of tweets, though 
 //finished product won't rely on this kind of variable.
@@ -22,30 +30,29 @@ var count = 0;
 
 //The majority of tweets don't have locations. The most reliable source of
 //tweets with location I found was filterin the stream api by a location.
-var stream = T.stream('statuses/filter', { locations: sanFrancisco });
 
 //FIX: Ran into errors with socket.io
-// io.sockets.on('connection', function (socket){
+io.sockets.on('connection', function (socket){
+  console.log('connected');
+
+  var stream = T.stream('statuses/filter', { locations: sanFrancisco });
+
   stream.on('tweet', function (tweet) {
-  // console.log(tweet);
+  // console.log(tweet.text);
   // console.log(Object.keys(tweet));
 
-  while (tweetArray.length < 10){
-    for (key in tweet){
-      var newObj = {};
-      newObj[key] = tweet[key];
-      tweetArray.push(newObj);
-    }
-  }
-  console.log(tweetArray);
-  // io.sockets.emit('stream',tweet);
+  // while (tweetArray.length < 10){
+  //   for (key in tweet){
+  //     var newObj = {};
+  //     newObj[key] = tweet[key];
+  //     tweetArray.push(newObj);
+  //   }
+  // }
+  // console.log(tweetArray);
 
-  // })
-})
+  io.sockets.emit('stream',tweet);
 
-
-
-console.log('Server connected - localhost:3000');
-app.listen(3000);
+  });
+});
 
 module.exports = app;
