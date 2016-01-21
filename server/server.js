@@ -12,12 +12,9 @@ app.get('/', function (req, res) {
   res.sendfile(__dirname + '/index.html');
 });
 
-//Since using streaming API needed reliable storage of tweets, though 
-//finished product won't rely on this kind of variable.
-var tweetArray = [];
-
 app.use(express.static('client'));
 
+//authentication comes from server-side config file
 var T = new Twit({
   consumer_key:         config.twitterAPI.consumer_key,
   consumer_secret:      config.twitterAPI.consumer_secret,
@@ -25,13 +22,13 @@ var T = new Twit({
   access_token_secret:  config.twitterAPI.access_token_secret
 })
 
-//San Francisco tweets with geocode
+//Streams tweets within continental United States
 var unitedStates = ['-124.848974','24.396308','-66.885444','49.384358'];
-var count = 0;
 
 //The majority of tweets don't have locations. The most reliable source of
 //tweets with location I found was filtering the stream api by a location.
 
+//Establishes socket connection with client-side
 io.sockets.on('connection', function (socket){
   console.log('connected');
 

@@ -7,22 +7,16 @@
   <body>
     <h1>Welcome to Twitter Map</h1>
     <br>
-    <script type="text/javascript" src="js/map.js"></script>
-    <script src="/socket.io/socket.io.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
-    <script>
-      var socket = io.connect('http://localhost:3000');
-      socket.on('stream', function(tweet){
-        console.log(tweet);
-      $('#tweetd').append(tweet+'<br>');
-      });
-    </script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="js/map.js"></script>
+
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYT392nP3yDeeVVKVfnnS7Vvg3guRc0AI&callback=initMap">
     </script>
 
     <div id="map"></div>
-    <div id="tweetd"></div>
+    <div id="tweets"></div>
 
   </body>
 </html>
