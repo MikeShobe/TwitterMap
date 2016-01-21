@@ -38,21 +38,11 @@ io.sockets.on('connection', function (socket){
   var stream = T.stream('statuses/filter', { locations: sanFrancisco });
 
   stream.on('tweet', function (tweet) {
-  // console.log(tweet.text);
-  // console.log(Object.keys(tweet));
-
-  // while (tweetArray.length < 10){
-  //   for (key in tweet){
-  //     var newObj = {};
-  //     newObj[key] = tweet[key];
-  //     tweetArray.push(newObj);
-  //   }
-  // }
-  // console.log(tweetArray);
 
   io.sockets.emit('stream',tweet);
 
   });
+
 });
 
 module.exports = app;
