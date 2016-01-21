@@ -8,13 +8,39 @@ h1 {
   text-align: center;
 }
 
+button {
+  display: block;
+  margin: 0 auto;
+  margin-left: 47%;
+  margin-top: -25px;
+  padding: 10px;
+  background-color: crimson;
+  color: white;
+  border-radius: 3px;
+}
+
+button:hover{
+  opacity: .70;
+}
+
 #map {
 	height: 90%;
 }
 
-#tweets {
-  height: 100px;
-  width: 100px;
-  font-size: 14px;
-  font: red;
+#iw-container  .iw-title {
+  text-align: center;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  padding: 10px;
+  background-color: #48b5e9;
+  color: white;
+  margin: 1px;
+  border-radius: 3px;
+}
+
+#iw-container p {
+  font-size: 18px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  text-align: center;
 }

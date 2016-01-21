@@ -5,8 +5,8 @@ function initMap() {
   var socket = io.connect('http://localhost:3000');
 
   var map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 37.7833, lng: -122.4167},
-    zoom: 11
+    center: {lat: 39.8282, lng: -98.5795},
+    zoom: 4
   });
 
   socket.on('stream', function(tweet){
@@ -29,17 +29,16 @@ function initMap() {
           map: map,
           title: tweetArray[i].user.name
         });
-        marker.content = tweetArray[i].text;
+        marker.content = '<div id= "iw-container"> <header class="iw-title">' + tweetArray[i].user.name
+        + ' in ' + tweetArray[i].place.full_name + '</header>' + '<p>' + tweetArray[i].text + '</p>'
+        + '</div>' + '<br></br> <button>Delete</button>';
 
         var infoWindow = new google.maps.InfoWindow();
         google.maps.event.addListener(marker, 'click', function () {
           infoWindow.setContent(this.content);
           infoWindow.open(this.getMap(), this);
         });
-        // map.setCenter(marker.getPosition());
-
-        // $('#map').append(marker);
-        // marker.setMap(map);
+        if (i === 10) map.setCenter(marker.getPosition());
       }
     }
     if (tweetArray.length === 10) rendered = true;
