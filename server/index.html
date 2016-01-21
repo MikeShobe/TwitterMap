@@ -7,10 +7,9 @@
   <body>
     <h1>Welcome to Twitter Map</h1>
     <br>
-    <script type="text/javascript" src="js/map.js"></script>
-    <script src="/socket.io/socket.io.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
-
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="js/map.js"></script>
     <script>
       var tweetArray = [];
       var rendered = false;
@@ -18,11 +17,11 @@
 
       socket.on('stream', function(tweet){
         // console.log(tweet);
-        if (tweetArray.length < 10){
+        if (tweetArray.length < 10 && tweet.geo){
           if (tweetArray.length === 0 || tweet.id !== tweetArray[tweetArray.length-1].id){
             tweetArray.push(tweet);
           }
-        console.log(tweetArray);
+        // console.log(tweetArray);
         }
 
         if (tweetArray.length === 10 && rendered === false){

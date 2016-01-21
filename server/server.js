@@ -25,22 +25,20 @@ var T = new Twit({
   access_token_secret:  config.twitterAPI.access_token_secret
 })
 
-var sanFrancisco = ['-122.75', '36.8', '-121.75', '37.8'];
+//San Francisco tweets with geocode
+var unitedStates = ['-124.848974','24.396308','-66.885444','49.384358'];
 var count = 0;
 
 //The majority of tweets don't have locations. The most reliable source of
-//tweets with location I found was filterin the stream api by a location.
+//tweets with location I found was filtering the stream api by a location.
 
-//FIX: Ran into errors with socket.io
 io.sockets.on('connection', function (socket){
   console.log('connected');
 
-  var stream = T.stream('statuses/filter', { locations: sanFrancisco });
+  var stream = T.stream('statuses/filter', {locations: unitedStates});
 
   stream.on('tweet', function (tweet) {
-
-  io.sockets.emit('stream',tweet);
-
+    io.sockets.emit('stream',tweet);
   });
 
 });
