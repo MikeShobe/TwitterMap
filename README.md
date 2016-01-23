@@ -7,4 +7,4 @@ NOTE: You must have Node.js installed
 
 ### Go to localhost:3000
 
-## NOTE: You will need your own Twitter API keys!
+NOTE: You will need your own API keys!
