@@ -40,9 +40,11 @@ function initMap() {
         });
 
       //formats infowindow content
-        marker.content = '<div id= "iw-container"> <header class="iw-title">' + tweetArray[i].user.name
+        marker.content = '<div id= "iw-container"> <header class="iw-title"> <img src="' 
+        + tweetArray[i].user.profile_image_url + '"> <a href=https://twitter.com/' 
+        + tweetArray[i].user.screen_name + '>' + tweetArray[i].user.name + '</a>'
         + ' in ' + tweetArray[i].place.full_name + '</header>' + '<p>' + tweetArray[i].text + '</p>'
-        + '</div>' + '<br></br> <button>Delete</button>';
+        + '</div>' + '<br></br> <button onclick="removeMarker()">Delete</button>';
 
       //appends infowindows to markers with proper info
         var infoWindow = new google.maps.InfoWindow();
@@ -58,5 +60,5 @@ function initMap() {
 }
 
 function removeMarker(){
-
+  setMapOnAll(null);
 }
