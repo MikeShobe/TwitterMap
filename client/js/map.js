@@ -29,7 +29,7 @@ function initMap() {
       for (var i = 0; i < tweetArray.length; i++) {
         var contentLocation = {lat: tweetArray[i].coordinates.coordinates[1],
                                lng: tweetArray[i].coordinates.coordinates[0]};
-        var icon = 'http://seawayfarms.ca/wp-content/uploads/Twitter-Icon.png';
+        var icon = 'http://www.bussvc.wisc.edu/swap/enews/images/twittericon.png';
 
       //create markers for google maps
         var marker = new google.maps.Marker({
@@ -38,6 +38,13 @@ function initMap() {
           title: tweetArray[i].user.name,
           icon: icon
         });
+
+      // //attempting to extract the url from the text and turn into link
+      //   if (!tweetLink){
+      //     var tweetLink = tweetArray[i].text.match(/(http|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:\/~+#-]*[\w@?^=%&amp;\/~+#-])?/)[0] || '';
+      //     console.log(tweetLink);
+      //   }
+
 
       //formats infowindow content
         marker.content = '<div id= "iw-container"> <header class="iw-title"> <img src="' 

@@ -4,10 +4,6 @@ html, body {
 	padding: 0; 
 }
 
-h1 {
-  text-align: center;
-}
-
 button {
   display: block;
   margin: 0 auto;
@@ -21,6 +17,18 @@ button {
 
 button:hover{
   opacity: .70;
+}
+
+#header {
+  text-align: center;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 400;
+  background-color: #48b5e9;
+  color: white;
+  padding: 25px 0px;
+  margin: -5px 0px;
+  margin-top: -27px;
+  border-radius: 3px;
 }
 
 #map {
@@ -39,8 +47,20 @@ button:hover{
   border-radius: 3px;
 }
 
+.iw-title img {
+  height: 70px;
+  width: 70px;
+}
+
 #iw-container p {
   font-size: 18px;
   font-family: 'Open Sans Condensed', sans-serif;
   text-align: center;
+}
+
+#iw-container a {
+  font-size: 18px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  display: block;
+  margin: 0 auto;
 }
