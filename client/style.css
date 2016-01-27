@@ -33,6 +33,7 @@ button:hover{
 
 #map {
 	height: 90%;
+  width: 100%;
 }
 
 #iw-container  .iw-title {
