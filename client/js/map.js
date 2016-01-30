@@ -1,6 +1,6 @@
-//Initializes map
-var limit = 10;
+var tweetLimit = 10;
 
+//Initializes map
 function initMap() {
   var tweetArray = [];
   var rendered = false;
@@ -15,8 +15,8 @@ function initMap() {
 //collects twitter stream api data from server side through socket
   socket.on('stream', function(tweet){
 
-    //fills tweetArray up to limit with usable tweet objects
-    if (tweetArray.length < limit && tweet.geo){
+    //fills tweetArray up to tweetLimit with usable tweet objects
+    if (tweetArray.length < tweetLimit && tweet.geo){
       if (tweetArray.length === 0 || tweet.id !== tweetArray[tweetArray.length-1].id){
         tweetArray.push(tweet);
         console.log(tweetArray);
@@ -29,7 +29,7 @@ function initMap() {
       for (var i = 0; i < tweetArray.length; i++) {
         var contentLocation = {lat: tweetArray[i].coordinates.coordinates[1],
                                lng: tweetArray[i].coordinates.coordinates[0]};
-        var icon = 'http://www.bussvc.wisc.edu/swap/enews/images/twittericon.png';
+        var icon = '../assets/twitter-icon.png' || 'http://www.sactownmag.com/images/twitter-icon.png';
 
       //create markers for google maps
         var marker = new google.maps.Marker({
@@ -39,20 +39,13 @@ function initMap() {
           icon: icon
         });
 
-      // //attempting to extract the url from the text and turn into link
-      //   if (!tweetLink){
-      //     var tweetLink = tweetArray[i].text.match(/(http|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:\/~+#-]*[\w@?^=%&amp;\/~+#-])?/)[0] || '';
-      //     console.log(tweetLink);
-      //   }
-
-
       //formats infowindow content
         marker.content = '<div id= "iw-container"> <header class="iw-title"> <img src="' 
         + tweetArray[i].user.profile_image_url + '"> <a href=https://twitter.com/' 
         + tweetArray[i].user.screen_name + '>' + tweetArray[i].user.name + '</a>'
         + ' in ' + tweetArray[i].place.full_name + ' | ' + tweetArray[i].created_at.substring(0,16) 
         + '</header>' + '<p>' + tweetArray[i].text + '</p>'
-        + '</div>' + '<br></br> <button onclick="removeMarker()">Delete</button>';
+        + '</div>' + '<br></br> <button onclick="removeMarkers()">Delete</button>';
 
       //appends infowindows to markers with proper info
         var infoWindow = new google.maps.InfoWindow();
@@ -62,11 +55,13 @@ function initMap() {
         });
       }
     }
-    //toggles falsey value when limit is reached to avoid displaying too many tweets
-    if (tweetArray.length === limit) rendered = true;
+    //toggles falsey value when tweetLimit is reached to avoid displaying too many tweets
+    if (tweetArray.length === tweetLimit) rendered = true;
   })  
 }
 
-function removeMarker(){
+//FIXME: Removing markers doesn't work yet. Built-in methods don't seem to
+// be compatible with stream/sockets.
+function removeMarkers(){
   setMapOnAll(null);
 }

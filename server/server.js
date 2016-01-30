@@ -9,7 +9,7 @@ var config = require('./config/config.js');
 server.listen(3000);
 
 app.get('/', function (req, res) {
-  res.sendfile(__dirname + '/index.html');
+  res.sendFile(__dirname + '/index.html');
 });
 
 app.use(express.static('client'));
