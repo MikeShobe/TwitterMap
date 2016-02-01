@@ -2,7 +2,6 @@
   "name": "twitter-map",
   "version": "1.0.0",
   "description": "GoogleMaps/Twitter mash-up",
-  "main": "index.js",
   "scripts": {
     "start": "nodemon server/server.js"
   },
