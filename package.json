@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "GoogleMaps/Twitter mash-up",
   "scripts": {
-    "start": "nodemon server/server.js"
+    "start": "nodemon server/server.js",
+    "test": "node ./node_modules/mocha/bin/mocha"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
   "homepage": "https://github.com/MikeShobe/TwitterMap#readme",
   "dependencies": {
     "express": "^4.13.3",
+    "mocha": "^2.4.5",
     "nodemon": "^1.8.1",
     "socket.io": "^1.4.4",
     "twit": "^2.1.1"
