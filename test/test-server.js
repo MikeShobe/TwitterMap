@@ -1,11 +1,17 @@
+var expect = require('chai').expect;
 var server = require('../server/server.js');
 
-describe('server', function () {
-  before(function () {
-    server.listen(3000);
+describe('server', function(){
+  it('Test one', function(){
+    expect(true).to.be.true;
   });
 
-  after(function () {
-    server.close();
+  it('Test two', function(){
+    expect(true).to.not.be.false;
   });
+
+  it('Test three', function(){
+    expect(1).to.eql(1);
+  });
+
 });

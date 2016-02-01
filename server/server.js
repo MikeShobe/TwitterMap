@@ -30,7 +30,7 @@ var unitedStates = ['-124.848974','24.396308','-66.885444','49.384358'];
 
 //Establishes socket connection with client-side
 io.sockets.on('connection', function (socket){
-  console.log('connected');
+  console.log('Socket connected');
 
   var stream = T.stream('statuses/filter', {locations: unitedStates});
 
