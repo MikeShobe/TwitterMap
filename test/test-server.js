@@ -2,18 +2,17 @@ var request = require('supertest');
 var server = require('../server/server.js');
 
 describe('server', function(){
-  it('Responds with 200', function(done){
+  it('Responded with status code of 200', function(done){
     request(server)
       .get('/')
-      .expect(200,done)
+      .expect(200, done)
   });
 
-  // it('Test two', function(){
-  //   expect(true).to.be.false;
-  // });
-
-  // it('Test three', function(){
-  //   expect(false).to.be.false;
+  // it('Responded with JSON', function(done){
+  //   request(server)
+  //     .get('/')
+  //     .set('Accept', 'application/json')
+  //     .expect('Content-Type', /json/, done)
   // });
 
 });
