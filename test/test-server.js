@@ -1,17 +1,19 @@
-var expect = require('chai').expect;
+var request = require('supertest');
 var server = require('../server/server.js');
 
 describe('server', function(){
-  it('Test one', function(){
-    expect(true).to.be.true;
+  it('Responds with 200', function(done){
+    request(server)
+      .get('/')
+      .expect(200,done)
   });
 
-  it('Test two', function(){
-    expect(true).to.not.be.false;
-  });
+  // it('Test two', function(){
+  //   expect(true).to.be.false;
+  // });
 
-  it('Test three', function(){
-    expect(1).to.eql(1);
-  });
+  // it('Test three', function(){
+  //   expect(false).to.be.false;
+  // });
 
 });

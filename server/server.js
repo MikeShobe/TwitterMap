@@ -10,6 +10,7 @@ server.listen(3000);
 
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/index.html');
+  res.send(200);
 });
 
 app.use(express.static('client'));
