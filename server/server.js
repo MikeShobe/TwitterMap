@@ -8,9 +8,15 @@ var config = require('./config/config.js');
 
 server.listen(3000);
 
+//serves index.html to page
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/index.html');
-  res.send(200);
+});
+
+//status code and other info
+app.get('/', function (req, res) {
+  if (req) res.sendStatus(200);
+  else console.error('Unable to request data');
 });
 
 app.use(express.static('client'));

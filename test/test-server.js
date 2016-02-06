@@ -12,7 +12,9 @@ describe('server', function(){
   //   request(server)
   //     .get('/')
   //     .set('Accept', 'application/json')
-  //     .expect('Content-Type', /json/, done)
+  //     .expect(200)
+  //     console.log(request(server))
+  //     done()
   // });
 
 });
